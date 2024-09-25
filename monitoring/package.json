@@ -1,0 +1,22 @@
+{
+  "name": "cbtu-monitoring",
+  "version": "1.0.0",
+  "main": "shared/IoC.js",
+  "keywords": [],
+  "author": "Renan Nune Viana",
+  "license": "ISC",
+  "description": "Logging project micro-service",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "inversify": "^6.0.2",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
+    "winston": "^3.14.2",
+    "winston-daily-rotate-file": "^5.0.0",
+    "winston-transport": "^4.7.1"
+  }
+}

@@ -1,0 +1,60 @@
+services:
+  
+  automation:
+    build:
+      context: ./automation-ms-puppeteer
+      dockerfile: Dockerfile
+    container_name: automation
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    # environment:
+      # - NODE_ENV = production
+    networks:
+      - pd-network
+    
+
+  front:
+    build:
+      context: ./react-front
+      dockerfile: Dockerfile
+    container_name: front
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - pd-data:/var/www/html
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    environment:
+      - NODE_ENV = production
+    networks:
+      - pd-network
+    depends_on:
+      - automation
+
+  persistence:
+    build:
+      context: ./persistence-api
+      dockerfile: Dockerfile
+    container_name: persistence
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    # environment:
+      # - NODE_ENV = test
+      # - NODE_ENV = production
+    networks:
+      - pd-network
+    depends_on:
+      - automation
+ 
+
+networks:
+  pd-network:
+    driver: bridge
+
+volumes:
+  pd-data:

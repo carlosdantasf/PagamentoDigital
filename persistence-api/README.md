@@ -1,6 +1,6 @@
-# pagamentos-digitais
+# Projeto Persistence API
 
-Este repositório contém uma aplicação para a venda de passagens com funcionalidades de filtragem, exibição de dados e gerenciamento de tickets.
+Este repositório contém a API de persistência utilizada para gerenciar dados de tickets e outras entidades.
 
 ## Requisitos
 
@@ -8,6 +8,7 @@ Antes de começar, certifique-se de ter os seguintes softwares instalados em seu
 
 - [Node.js](https://nodejs.org/en/download/) (versão 14 ou superior)
 - [npm](https://www.npmjs.com/get-npm) (gerenciador de pacotes do Node.js)
+- [PostgreSQL](https://www.postgresql.org/download/) (ou outro banco de dados configurado)
 
 ## Instalação
 
@@ -16,21 +17,16 @@ Antes de começar, certifique-se de ter os seguintes softwares instalados em seu
 Primeiro, clone o repositório do GitHub para o seu ambiente local:
 
 ```bash
-git clone https://github.com/seu-usuario/projeto-passagens.git
-cd projeto-passagens
+git clone https://github.com/seu-usuario/persistence-api.git
+cd persistence-api
 ```
 
 ### Instalar Dependências
 
-Esta aplicação depende de vários pacotes Node.js. Para instalar todas as dependências, execute:
+Para instalar todas as dependências necessárias, execute:
 
 ```bash
 npm install
-```
-Para instalar todas as dependências, mas somente as de produção, execute:
-
-```bash
-npm install --production
 ```
 
 ## Configuração do Ambiente
@@ -38,11 +34,15 @@ npm install --production
 Você precisará configurar algumas variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
 
 ```env
-VITE_PERSISTENCE_API=http://api.sua-api-de-persistencia.com
-VITE_AUTOMATION_API=http://api.sua-api-de-automacao.com
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=seu-usuario
+DB_PASSWORD=sua-senha
+DB_NAME=nome-do-banco
+PORT=3001
 ```
 
-Certifique-se de substituir `http://api.sua-api-de-persistencia.com` e `http://api.sua-api-de-automacao.com` pela URL correta da API de persistência e automação.
+Certifique-se de substituir os valores pelas informações corretas do seu banco de dados e porta da API.
 
 ## Inicialização do Projeto
 
@@ -54,38 +54,31 @@ Para iniciar o projeto em modo de desenvolvimento, execute:
 npm run dev
 ```
 
-Isso iniciará um servidor de desenvolvimento e você pode acessar a aplicação em `http://localhost:5173/`.
+Isso iniciará o servidor com hot-reload, ideal para desenvolvimento.
 
 ### Modo de Produção
 
-Para gerar uma build de produção, execute:
+Para gerar uma build de produção e iniciar o projeto, execute:
 
 ```bash
 npm run build
-```
-
-Para servir a build de produção, execute:
-
-```bash
 npm start
 ```
 
-## Outros Comandos Úteis
+## Executar Migrações
 
-### Testes
+Se o seu projeto utiliza Sequelize ou outro ORM com migrações, você precisa rodar as migrações antes de iniciar o servidor:
+
+```bash
+npx sequelize-cli db:migrate
+```
+
+## Testes
 
 Para executar os testes, utilize:
 
 ```bash
 npm run test
-```
-
-### Linters
-
-Para verificar a qualidade do código utilizando ESLint, execute:
-
-```bash
-npm run lint
 ```
 
 ## Contribuição

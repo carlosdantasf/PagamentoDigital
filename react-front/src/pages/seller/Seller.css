@@ -1,0 +1,154 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e5e5e5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.backHomeBtn{
+  background-color: #18aa67;
+  height: 3rem;
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 15rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  font-size: 2rem;
+  transition: transform 0.3s ease-in;
+}
+
+.backHomeBtn:hover{
+  transform: scale(1.05);
+}
+
+.inteira {
+  background-color: #158acd; /* Azul CBTU */
+}
+
+.inteira:hover {
+  background-color: #158acd; /* Azul mais escuro para hover */
+}
+
+.meia {
+  background-color: #158acd; /* Verde CBTU */
+}
+
+.meia:hover {
+  background-color: #158acd; /* Verde mais escuro para hover */
+}
+
+.qr-code {
+  margin-top: 20px;
+  width: 400px; /* Tamanho fixo de 400px */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Centralizado na tela */
+}
+
+.paymentStatus{
+  font-size: 3rem;
+}
+
+.successPayment{
+  background-color: #007e50;
+}
+
+.ticket-info {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #e9e9e9;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.passagem-quantidade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-minus,
+.btn-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #158acd;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 0 10px;
+}
+
+.btn-minus:hover,
+.btn-plus:hover {
+  background-color: #158acd;
+  transform: scale(1.1);
+}
+
+.ticketsQntd {
+  font-size: 24px;
+  font-weight: bold;
+  width: 60px;
+  text-align: center;
+  color: #333;
+  border: 2px solid #bbb;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.infoTickets{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.last-tickets{
+  position: absolute;
+  top: 0;
+  right: 0;
+}

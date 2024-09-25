@@ -1,6 +1,6 @@
-# pagamentos-digitais
+# Projeto Automation Microservice com Puppeteer
 
-Este repositório contém uma aplicação para a venda de passagens com funcionalidades de filtragem, exibição de dados e gerenciamento de tickets.
+Este repositório contém um microserviço de automação utilizando Puppeteer para realizar tarefas automatizadas.
 
 ## Requisitos
 
@@ -16,21 +16,16 @@ Antes de começar, certifique-se de ter os seguintes softwares instalados em seu
 Primeiro, clone o repositório do GitHub para o seu ambiente local:
 
 ```bash
-git clone https://github.com/seu-usuario/projeto-passagens.git
-cd projeto-passagens
+git clone https://github.com/seu-usuario/automation-ms-puppeteer.git
+cd automation-ms-puppeteer
 ```
 
 ### Instalar Dependências
 
-Esta aplicação depende de vários pacotes Node.js. Para instalar todas as dependências, execute:
+Para instalar todas as dependências necessárias, execute:
 
 ```bash
 npm install
-```
-Para instalar todas as dependências, mas somente as de produção, execute:
-
-```bash
-npm install --production
 ```
 
 ## Configuração do Ambiente
@@ -38,11 +33,11 @@ npm install --production
 Você precisará configurar algumas variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
 
 ```env
-VITE_PERSISTENCE_API=http://api.sua-api-de-persistencia.com
-VITE_AUTOMATION_API=http://api.sua-api-de-automacao.com
+PUPPETEER_EXECUTABLE_PATH=/path/to/your/chrome-or-chromium
+PORT=3002
 ```
 
-Certifique-se de substituir `http://api.sua-api-de-persistencia.com` e `http://api.sua-api-de-automacao.com` pela URL correta da API de persistência e automação.
+Certifique-se de substituir `/path/to/your/chrome-or-chromium` pelo caminho correto do executável do Chrome ou Chromium e a porta conforme necessário.
 
 ## Inicialização do Projeto
 
@@ -54,7 +49,7 @@ Para iniciar o projeto em modo de desenvolvimento, execute:
 npm run dev
 ```
 
-Isso iniciará um servidor de desenvolvimento e você pode acessar a aplicação em `http://localhost:5173/`.
+Isso iniciará o servidor com hot-reload, ideal para desenvolvimento.
 
 ### Modo de Produção
 
@@ -64,13 +59,25 @@ Para gerar uma build de produção, execute:
 npm run build
 ```
 
-Para servir a build de produção, execute:
+### Instalação das Dependências de Produção
+
+Se você deseja instalar apenas as dependências de produção, use o seguinte comando:
 
 ```bash
-npm start
+npm install --production
 ```
 
-## Outros Comandos Úteis
+Isso é útil para ambientes de produção onde você não precisa das dependências de desenvolvimento.
+
+## Scripts Disponíveis
+
+### Lint
+
+Para verificar a qualidade do código utilizando ESLint, execute:
+
+```bash
+npm run lint
+```
 
 ### Testes
 
@@ -78,14 +85,6 @@ Para executar os testes, utilize:
 
 ```bash
 npm run test
-```
-
-### Linters
-
-Para verificar a qualidade do código utilizando ESLint, execute:
-
-```bash
-npm run lint
 ```
 
 ## Contribuição
